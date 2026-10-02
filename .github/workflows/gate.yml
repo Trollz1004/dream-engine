@@ -1,0 +1,16 @@
+name: 90 percent gate
+on: [push, pull_request]
+jobs:
+  gate:
+    name: 90 percent gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+      - name: Install
+        if: hashFiles('package.json') != ''
+        run: if [ -f package-lock.json ]; then npm ci; else npm install; fi
+      - name: Test at 90 percent or better
+        run: bash .github/scripts/pass-rate.sh
