@@ -23,6 +23,11 @@ if [ -z "${pass:-}" ]; then
   pass=$(echo "$plain" | grep -E '^ℹ pass [0-9]+' | tail -1 | grep -oE '[0-9]+')
   fail=$(echo "$plain" | grep -E '^ℹ fail [0-9]+' | tail -1 | grep -oE '[0-9]+')
 fi
+# Node test runner without a terminal (CI) prints TAP: "# pass 18" / "# fail 0"
+if [ -z "${pass:-}" ]; then
+  pass=$(echo "$plain" | grep -E '^# pass [0-9]+' | tail -1 | grep -oE '[0-9]+')
+  fail=$(echo "$plain" | grep -E '^# fail [0-9]+' | tail -1 | grep -oE '[0-9]+')
+fi
 pass=${pass:-0}; fail=${fail:-0}
 total=$((pass + fail))
 
@@ -36,7 +41,7 @@ total=$((pass + fail))
     if [ "$fail" -gt 0 ]; then
       echo ""
       echo "Failing tests:"
-      echo "$plain" | grep -E '(FAIL|✖|×) ' | grep -v '^npm ' | sed 's/^/- /' | head -50
+      echo "$plain" | grep -E '(FAIL|✖|×|^not ok) ' | grep -v '^npm ' | sed 's/^/- /' | head -50
     fi
   fi
 } >> "$SUMMARY"
