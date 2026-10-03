@@ -1,0 +1,22 @@
+# Design Decisions
+
+- Implemented pure WebGPU platform renderer with WGSL shaders and zero third-party engine libraries (per brief requirement to own everything).
+- Implemented pure WebGL2 fallback platform renderer with GLSL 3.00 ES shaders to guarantee frame delivery across all browser platforms.
+- Cached GPU vertex, index, and uniform buffers per geometry to eliminate per-frame GPU reallocation and prevent command buffer invalidation.
+- Created sky dome that pins depth to far plane (0.99999) and disables depth writing so environment gradients never occlude world geometry.
+- Disabled back-face culling on ground plane and monolith geometries to prevent winding order differences from clipping surfaces.
+- Dynamic WebGPU depth texture sizing: dynamically synchronizes depthStencilAttachment dimensions (`depthWidth`, `depthHeight`) with `currentTexture.width` and `currentTexture.height` before `beginRenderPass` to prevent size mismatch validation errors during window or canvas resize.
+- Maintained active control state alongside pointer lock so mouse drag and WASD movement continue to work seamlessly if the browser iframe refuses pointer lock.
+- Placed real pixel framebuffer readback (via gl.readPixels sampling) to mathematically measure average frame luma on every tick.
+- Scheduled console logging at 1Hz with format `[DREAM] backend=<webgpu|webgl2> profile=<day|night> fps=<n> luma=<avg>` for runtime verification.
+- Reversed both north/south and left/right movement direction vectors in CharacterController per user preference.
+- Added comprehensive System Settings modal with real-time sliders for Graphics (brightness/exposure, fog, sun/ambient lighting), Camera (FOV, distance), Controls (mouse sensitivity, axes invert toggles), and procedural Web Audio atmosphere synthesis with subtle provenance badge.
+- Integrated standard HTML5 Gamepad API with stick deadzone and sensitivity controls, added 1st Person Visor and 3rd Person Orbit camera modes with cybernetic HUD reticle, and implemented searchable DREAM Eye World Codex & Tactical Radar.
+- Corrected mouse horizontal look axis (moving mouse right turns view right), restored standard camera-aligned WASD movement with dedicated invert toggles in Settings, and renamed all references to C0D3X.
+- Motion Blur is permanently banned and hard-locked to OFF across the entire engine and shader pipeline, guaranteeing zero motion smearing, crisp silhouettes, and crystal-clear frame delivery.
+- Implemented Stage 1 DREAM combat parity with exact action timing windows, dash invulnerability (yellow) and recovery (red), 3-step light combo, heavy swing, 75% guard absorption, Dream Lunge, Nightveil Burst, Hollow Sentinel automaton with 4.2s Focus Beam cycle, combo grammar resolution, and append-only in-memory world event log.
+- Decoupled combat actions and movement keys from pointer lock state so keyboard commands (Q, E, R, F, Z, C, LMB, RMB, WASD) register as soon as the canvas/page has keyboard focus, with overlay hiding on first user interaction even if pointer lock is refused.
+- Implemented 120Hz fixed-step headless proof sequence on setTimeout (`?proof=1`) testing the entire combat loop (walk 2s, dash i-frame through beam, 3 light strikes, 1 heavy, guard against beam, Dream Lunge, Nightveil Burst) and logging authoritative metrics.
+- Replaced primitive player capsule with procedural Cyber-Knight geometry and geminEyE cyber-optic HUD featuring live Web Audio atmosphere synth, frequency analyzer, telemetry, and Gemini-accented chromatic styling.
+- Standardized co-branding to plain-text "Built with Google Gemini" with no logo per Google's official brand guidelines.
+- Implemented real-time circular tactical radar minimap conforming strictly to DREAM Space design system (Ink ground #0A0B0D, Hull border #3A3F45, Signal Yellow #FFD21E focal markers), supporting camera-heading & North-up orientation, range zoom, target lock, and live POI tracking (Hollow Sentinel combat states, ancient monoliths, sanctuary gate, and resource nodes).

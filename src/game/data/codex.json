@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "0.1.0",
+  "landmarks": [
+    { "id": 1, "name": "Monolith Alpha", "x": 8, "z": -12, "desc": "Ancient southern beacon" },
+    { "id": 2, "name": "Monolith Beta", "x": -12, "z": -18, "desc": "Southwest observation pillar" },
+    { "id": 3, "name": "Monolith Gamma", "x": 16, "z": 14, "desc": "Northeast highland spire" },
+    { "id": 4, "name": "Monolith Delta", "x": -15, "z": 10, "desc": "Northwest stone marker" },
+    { "id": 5, "name": "Monolith Epsilon", "x": 0, "z": -28, "desc": "Far southern boundary monolith" },
+    { "id": 6, "name": "Monolith Zeta", "x": 24, "z": -6, "desc": "Eastern horizon pillar" }
+  ],
+  "lifeSkills": [
+    {
+      "id": "forage-1",
+      "name": "Sun-Clover Petals",
+      "category": "foraging",
+      "rarity": "Common",
+      "location": "Open Sunlit Meadows (Day Dream)",
+      "description": "Golden four-leaf flora that blooms only during full daylight. Essential herb for health tonics and broth.",
+      "effect": "Cures minor fatigue; base for stamina teas."
+    },
+    {
+      "id": "forage-2",
+      "name": "Nocturnal Spore-Bulb",
+      "category": "foraging",
+      "rarity": "Uncommon",
+      "location": "Monolith Shadows (Night Dream)",
+      "description": "Bioluminescent fungus emitting a faint indigo halo. Harvested carefully under starlight.",
+      "effect": "Provides night-vision tincture components."
+    },
+    {
+      "id": "forage-3",
+      "name": "Gilded Meadow Grass",
+      "category": "foraging",
+      "rarity": "Common",
+      "location": "Lowland Terraces",
+      "description": "Fibrous golden wheat used by nomads to weave lightweight satchels and kindling."
+    },
+    {
+      "id": "mine-1",
+      "name": "Star-Iron Deposit",
+      "category": "mining",
+      "rarity": "Rare",
+      "location": "Monolith 1 & 4 Outcrops",
+      "description": "Dense meteoric ore resonant with atmospheric energy. Hardened through ancient planetary impacts.",
+      "effect": "Smelted into high-grade weapon cores and visor reinforcement."
+    },
+    {
+      "id": "mine-2",
+      "name": "Amber Quartz Shard",
+      "category": "mining",
+      "rarity": "Uncommon",
+      "location": "Ridge Formations",
+      "description": "Translucent crystal capturing warm light. Used in crafting precision optical HUD lenses.",
+      "effect": "Refractive lens element for visor HUD upgrade."
+    },
+    {
+      "id": "mine-3",
+      "name": "Basalt Slag Block",
+      "category": "mining",
+      "rarity": "Common",
+      "location": "Peripheral Flats",
+      "description": "Volcanic stone offering immense heat insulation. Foundation for field smelters and camp stoves."
+    },
+    {
+      "id": "wood-1",
+      "name": "Whispering Birch Log",
+      "category": "woodcraft",
+      "rarity": "Common",
+      "location": "Riverbank Groves",
+      "description": "Flexible, silvery wood easy to carve. Used for field stakes, handle grips, and tent frames."
+    },
+    {
+      "id": "wood-2",
+      "name": "Ancient Gloom-Oak Core",
+      "category": "woodcraft",
+      "rarity": "Rare",
+      "location": "Deep Highland Valley",
+      "description": "Heavy heartwood that resists decay and shock. Required for heavy shields and siege timber."
+    },
+    {
+      "id": "cook-1",
+      "name": "Traveler's Meadow Stew",
+      "category": "cooking",
+      "rarity": "Common",
+      "location": "Any Campfire Stove",
+      "description": "A comforting, savory blend of roasted wild roots and sun-clover petals simmering in spring water.",
+      "materials": ["Sun-Clover Petals x2", "Wild Root x1", "Spring Dew x1"],
+      "effect": "+25% Sprint Stamina efficiency for 10 minutes."
+    },
+    {
+      "id": "cook-2",
+      "name": "Celestial Dawn Roast",
+      "category": "cooking",
+      "rarity": "Rare",
+      "location": "Advanced Firepit",
+      "description": "Seared cuts seasoned with ground amber quartz salt and dried herbs.",
+      "materials": ["Field Jerky x2", "Amber Quartz Powder x1", "Sun-Clover x3"],
+      "effect": "+15% Run Speed & +30% Gathering critical harvest rate."
+    },
+    {
+      "id": "cook-3",
+      "name": "Nocturnal Starlight Draught",
+      "category": "cooking",
+      "rarity": "Uncommon",
+      "location": "Distillery Kit",
+      "description": "Cold-steeped elixir that sharpens nocturnal visual clarity and eliminates sensory fog.",
+      "materials": ["Nocturnal Spore-Bulb x2", "Spring Dew x2"],
+      "effect": "Extends compass radar detection radius by 150m."
+    }
+  ]
+}
